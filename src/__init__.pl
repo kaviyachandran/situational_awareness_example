@@ -1,6 +1,7 @@
 :- register_ros_package(knowrob).
+:- register_ros_package(situation_awareness_example).
 
-:- use_module(library('cutting.pl')).
+:- use_module(library('cutting')).
 
 :- use_module(library('db/tripledb'), 
               [tripledb_load/2]).
