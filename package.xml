@@ -1,0 +1,21 @@
+<package>
+  <name>situation_awareness_example</name>
+  <version>0.1.0</version>
+  
+  <description> Situation Awareness 
+  This package contains ontology and predicates to reason about the goal given the objects.
+  </description>
+
+  <maintainer email="kaviya@uni-bremen.de">Kaviya Dhanabalachandran</maintainer>
+
+  <license>BSD</license>
+
+  <author email="kaviya@uni-bremen.de">Kaviya Dhanabalachandran</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>knowrob</build_depend>
+
+  <run_depend>knowrob</run_depend>
+
+</package>
