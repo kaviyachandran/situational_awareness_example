@@ -18,7 +18,14 @@ assert_objects_in_scene([ObjectType | Rest]) :-
     writeln('nothing2'),
     tell( [ is_physical_object(Object),
         has_type(Object, ObjectType)]),
-    assert_objects_in_scene(Rest).
+    assert_objects_in_scene(Rest),
+    has_disposition(ObjectType, Disposition).
+    
+    /* subclass_of(sa:'Cucumber', C), 
+    has_description(C, exactly(soma:hasDisposition, 1, C1)), 
+    has_description(C1, intersection_of(L)), 
+    member(Test, L), 
+    has_description(Test, only(soma:'affordsTask', Task)). */
     
 assert_objects_in_scene([]) :- writeln('nothing').
 
