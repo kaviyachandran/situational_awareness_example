@@ -10,8 +10,7 @@
      xmlns:SOMA="http://www.ease-crc.org/ont/SOMA.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl">
-        <!-- <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA-HOME.owl"/> -->
-        <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-HOME.owl"/>
+        <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA-HOME.owl"/>
     </owl:Ontology>
     
 
@@ -132,6 +131,14 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Manipulating"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife">
@@ -139,15 +146,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass>
+                <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting"/>
@@ -166,10 +171,40 @@
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
-                </owl:onClass>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A device with jagged edges used to cut the bread.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadSlice -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadSlice">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#BakedGood"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isConstituentOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Bread"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole"/>
+                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#AlteredObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A part of bread. It is often consumed with butter, jam spread on top.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Butter -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Butter">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#MilkProducts"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An edible substance made from milk. It can used as a spread on bread and also in cooking</rdfs:comment>
     </owl:Class>
     
 
@@ -178,6 +213,45 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#ButterKnife">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Knife"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Sawing"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadSlice"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Butter"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A device with no sharp edges used to spread butter on bread</rdfs:comment>
     </owl:Class>
     
@@ -250,6 +324,15 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#MilkProducts -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#MilkProducts">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Food"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All the products made from milk</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Sawing -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Sawing">
@@ -270,6 +353,14 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The disposition of an object (tool) to alter the shape of others in such a way that results in getting parts from the whole</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Variability"/>
     </owl:Class>
     
 
