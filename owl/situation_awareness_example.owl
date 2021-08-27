@@ -306,7 +306,7 @@
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Sawing"/>
+                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
