@@ -26,6 +26,8 @@ assert_objects_in_scene([ObjectType | Rest]) :-
     has_description(C1, intersection_of(L)), 
     member(Test, L), 
     has_description(Test, only(soma:'affordsTask', Task)). */
+    %To get role -  subclass_of(soma:'Bread', Desc), has_description(Desc, only(dul:hasRole, X)).%
+    %to get task - subclass_of(sa:'Splitting', Desc), has_description(Desc, only(soma:affordsTask, Task)).%
     
 assert_objects_in_scene([]) :- writeln('nothing').
 
