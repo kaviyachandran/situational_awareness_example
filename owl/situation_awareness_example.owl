@@ -10,7 +10,7 @@
      xmlns:SOMA="http://www.ease-crc.org/ont/SOMA.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl">
-        <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-HOME.owl"/>
+        <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA-HOME.owl"/>
     </owl:Ontology>
     
 
@@ -346,6 +346,15 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A physical object that is eaten raw in the form of sticks, slices. It is used in salads.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Cuttable -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Cuttable">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Disposition"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The disposition of an object to afford cutting the object.</rdfs:comment>
     </owl:Class>
     
 
