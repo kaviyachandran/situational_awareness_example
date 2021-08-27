@@ -10,7 +10,7 @@
      xmlns:SOMA="http://www.ease-crc.org/ont/SOMA.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl">
-        <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA-HOME.owl"/>
+        <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-HOME.owl"/>
     </owl:Ontology>
     
 
@@ -43,9 +43,39 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#affordsTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA.owl#hasDisposition -->
 
     <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isConstituentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isConstituentOf"/>
     
 
 
@@ -62,17 +92,17 @@
 
     <!-- http://www.ease-crc.org/ont/SOMA-HOME.owl#KitchenKnife -->
 
-    <rdf:Description rdf:about="http://www.ease-crc.org/ont/SOMA-HOME.owl#KitchenKnife">
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA-HOME.owl#KitchenKnife">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                <owl:allValuesFrom>
+                <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting"/>
@@ -91,10 +121,10 @@
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
-                </owl:allValuesFrom>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </rdf:Description>
+    </owl:Class>
     
 
 
@@ -104,30 +134,78 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#BakedGood -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#BakedGood"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Bread -->
 
-    <rdf:Description rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Bread">
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Bread">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole"/>
                 <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#AlteredObject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Cutting -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Deposition -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Deposition"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#DesignedTool -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#DesignedTool"/>
     
 
 
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Dish -->
 
-    <rdf:Description rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Dish">
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Dish">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Food"/>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Knife -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Knife"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Manipulating -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Manipulating"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Slicing -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
     
 
 
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Support -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Support"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Variability -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Variability"/>
     
 
 
@@ -342,6 +420,14 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#SlicedObject -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#SlicedObject">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#AlteredObject"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting">
@@ -371,6 +457,18 @@
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Food"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An edible physical object obtained from plants</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#BiologicalObject -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#BiologicalObject"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
     <rdf:Description>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>

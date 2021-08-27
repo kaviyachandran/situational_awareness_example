@@ -44,7 +44,7 @@ get_task_for_objects_(ObjectType, Task) :-
 
 get_dispositions_(ObjectType, Disposition) :-
     ((subclass_of(ObjectType, Desc), 
-    has_description(Desc, exactly(soma:hasDisposition, 1, Disposition)));
+    has_description(Desc, some(soma:hasDisposition, Disposition)));
     (transitive(subclass_of(ObjectType, Desc)), 
     has_description(Desc, only(dul:hasRole, Role)),
     is_restriction(R1),
