@@ -45,39 +45,47 @@ test('get tasks of objects') :-
     writeln(Tasks).
 
 test('get objects for the task') :-
-    Task is 'http://www.ease-crc.org/ont/SOMA.owl#Cutting',
-    OT is ['http://www.ease-crc.org/ont/situation_awareness_example.owl#Cucumber', 'http://www.ease-crc.org/ont/SOMA.owl#KitchenKnife'],
+    Task = 'http://www.ease-crc.org/ont/SOMA.owl#Cutting',
+    OT = ['http://www.ease-crc.org/ont/situation_awareness_example.owl#Cucumber', 'http://www.ease-crc.org/ont/SOMA.owl#Bread'],
     findall(O,
-        (member_of(O, OT),
+        (member(O, OT),
         transitive(subclass_of(O, C)),
         has_description(C, some(soma:hasDisposition, C1)), 
         has_description(C1, intersection_of(L)),
         member(Test, L), 
-        has_description(Test, only(soma:'affordsTask', Task)),
+        has_description(Test, only(soma:'affordsTask', TaskType)),
+        transitive(subclass_of(TaskType, Task))),
     Os),
+    writeln(Os),
     length(Os, Len),
-    ((Len is 0 -> print('warn', "These objects do not afford to do the task"),
-                OList = ['Trigger', 'Bearer']);
-    get_missing_objects_(Os, Task, [], OList)).
+    gtrace,
+    ((Len is 0 -> (print_message('warn', "These objects do not afford to do the task"), OList = ['Trigger', 'Bearer']));
+    get_missing_objects_(Os, [], OList)),
+    writeln(OList). 
 
-get_missing_objects_([O | R], Task, Temp, OList) :-
-    compare_objects(O, R, Task, Miss),
+get_missing_objects_([O | R], Temp, OList) :-
+    compare_objects(O, R, Miss),
+    (\+ground(Miss) -> Miss = []; true),
     append(Miss, Temp, Temp1),
-    get_missing_objects_(R, Task, Temp1, OList).
+    get_missing_objects_(R, Temp1, OList).
+
+get_missing_objects_([], Temp, Temp).
+
+compare_objects(_, [], _).
 
 compare_objects(O, R, Miss) :-
-    transitive(subclass_of(sa:'Cucumber', C)), 
+    transitive(subclass_of(O, C)), 
     has_description(C, some(soma:hasDisposition, C1)), 
     has_description(C1, intersection_of(L)), 
     member(Test, L), 
     has_description(Test, only(soma:'affordsTrigger', Desc)),
     has_description(Desc, only(dul:classifies, TriggerObjectType)),
     findall(TriggerObj,
-        (member(Other, R),
-        transitive(subclass_of(Other, TriggerObjectType))),
+        (member(TriggerObj, R),
+        transitive(subclass_of(TriggerObj, TriggerObjectType))),
         Objs),
-    length(Objs, L),
-    L is 0 -> Miss is [TriggerObjectType]; Miss is [].
+    length(Objs, Length),
+    Length is 0 -> Miss = [TriggerObjectType] ; true.
 
 create_list_([L | R], Temp, A) :-
     X is L+1,
@@ -95,8 +103,14 @@ create_list_([], Temp, Temp).
 
  
 
+%test('get task') :-
+    
+
 
 % C: http://www.ease-crc.org/ont/situation_awareness_example.owl#_:Description15,
 % Task: http://www.ease-crc.org/ont/situation_awareness_example.owl#Sawing,
 % L: [u'http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting', u'http://www.ease-crc.org/ont/situation_awareness_example.owl#_:Description17', u'http://www.ease-crc.org/ont/situation_awareness_example.owl#_:Description18'],
 % Val: http://www.ease-crc.org/ont/situation_awareness_example.owl#_:Description16
+
+ %To get role -  subclass_of(soma:'Bread', Desc), has_description(Desc, only(dul:hasRole, X)).%
+    %to get task - subclass_of(sa:'Splitting', Desc), has_description(Desc, only(soma:affordsTask, Task)).%d

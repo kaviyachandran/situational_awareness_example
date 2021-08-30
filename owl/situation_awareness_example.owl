@@ -12,8 +12,6 @@
     <owl:Ontology rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl">
         <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-HOME.owl"/>
         <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-OBJ.owl"/>
-        <!-- <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA-HOME.owl"/>
-        <owl:imports rdf:resource="http://www.ease-crc.org/ont/SOMA-OBJ.owl"/> -->
     </owl:Ontology>
     
 
@@ -181,9 +179,21 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#CreatedObject -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#CreatedObject"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Cutting -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#CuttingTool -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
     
 
 
@@ -204,6 +214,12 @@
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Dish">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Food"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Disposition -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Disposition"/>
     
 
 
@@ -297,14 +313,8 @@
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#BakedGood"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isConstituentOf"/>
-                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Bread"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#ExtractedObject"/>
+                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CreatedObject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A part of bread. It is often consumed with butter, jam spread on top.</rdfs:comment>
@@ -316,6 +326,37 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Butter">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#MilkProducts"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreadability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreadability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ButterKnife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An edible substance made from milk. It can used as a spread on bread and also in cooking</rdfs:comment>
     </owl:Class>
     
@@ -324,7 +365,38 @@
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#ButterKnife -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#ButterKnife">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Knife"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#DesignedTool"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Butter"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A device with no sharp edges used to spread butter on bread</rdfs:comment>
     </owl:Class>
     
@@ -475,6 +547,14 @@
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreadability">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Disposition"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The disposition of an object that affords to spread it on top of another object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Disposition"/>
     </owl:Class>
     
 
