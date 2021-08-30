@@ -1,6 +1,7 @@
 :- module(cutting,
     [ 
-        assert_objects_in_scene(r)
+        get_tasks(+, -),
+        
     ]).
 
 :- rdf_db:rdf_register_ns(soma,
@@ -19,37 +20,39 @@ Sol:
 3. Find the common tasks when there is more than one object
 */
 
-assert_objects_in_scene([ObjectType | Rest]) :-
-    writeln('nothing2'),
-    tell( [ is_physical_object(Object),
-        has_type(Object, ObjectType)]),
-    assert_objects_in_scene(Rest),
-    get_task_for_objects_(ObjectType, Task).
+get_tasks([Object | Rest], TaskList) :-
+    get_potential_tasks_([Object | Rest], [], TaskList).    
+
+get_potential_tasks_([O | R], Temp, TaskList) :-
+    has_type(O, ObjectType),
+    triple(ObjectType,rdfs:subClassOf,dul:'PhysicalObject'),
+    get_task_for_objects_(ObjectType, Tasks),
+    append(Tasks, Temp, Temp1),
+    get_potential_tasks_(R, Temp1, TaskList).
     
-    /* subclass_of(sa:'Cucumber', C), 
-    has_description(C, exactly(soma:hasDisposition, 1, C1)), 
-    has_description(C1, intersection_of(L)), 
-    member(Test, L), 
-    has_description(Test, only(soma:'affordsTask', Task)). */
+get_potential_tasks_([], Temp, Temp).
+
     %To get role -  subclass_of(soma:'Bread', Desc), has_description(Desc, only(dul:hasRole, X)).%
     %to get task - subclass_of(sa:'Splitting', Desc), has_description(Desc, only(soma:affordsTask, Task)).%
-    
-assert_objects_in_scene([]) :- writeln('nothing').
 
-get_task_for_objects_(ObjectType, Task) :-
-    get_dispositions_(ObjectType, Dispositions),
+get_task_for_objects_(ObjectType, Tasks) :-
+   findall(Task,
+        (transitive(subclass_of(ObjectType, C)),
+        has_description(C, some(soma:hasDisposition, C1)), 
+        has_description(C1, intersection_of(L)),
+        member(Test, L), 
+        has_description(Test, only(soma:'affordsTask', Task))),
+        Tasks),
+    writeln(Tasks).
 
-    subclass_of(Disposition, Desc1), 
-    has_description(Desc1, only(soma:affordsTask, Task)).
-
-get_dispositions_(ObjectType, Disposition) :-
-    ((subclass_of(ObjectType, Desc), 
-    has_description(Desc, some(soma:hasDisposition, Disposition)));
-    (transitive(subclass_of(ObjectType, Desc)), 
-    has_description(Desc, only(dul:hasRole, Role)),
-    is_restriction(R1),
-    is_restriction(R1, only(soma:affordsTrigger, Role)), 
-    transitive(subclass_of(Disposition, R1))
-    )).
+% get_dispositions_(ObjectType, Disposition) :-
+%     ((subclass_of(ObjectType, Desc), 
+%     has_description(Desc, some(soma:hasDisposition, Disposition)));
+%     (transitive(subclass_of(ObjectType, Desc)), 
+%     has_description(Desc, only(dul:hasRole, Role)),
+%     is_restriction(R1),
+%     is_restriction(R1, only(soma:affordsTrigger, Role)), 
+%     transitive(subclass_of(Disposition, R1))
+%     )).
 
 %create_affordances()
