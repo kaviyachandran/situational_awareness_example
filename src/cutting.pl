@@ -4,8 +4,7 @@
         get_missing_objects_for_task(+, +, -)
     ]).
 
-:- rdf_db:rdf_register_ns(soma,
-    'http://www.ease-crc.org/ont/SOMA.owl#', [keep(true)]).
+
 
 /*
 queries to think about : 

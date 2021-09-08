@@ -197,6 +197,12 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Deposit -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Deposit"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Deposition -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Deposition"/>
@@ -232,6 +238,12 @@
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Manipulating -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Manipulating"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Patient -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Patient"/>
     
 
 
@@ -463,6 +475,12 @@
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#DesignedTool"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Deposit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
                 <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Deposition"/>
             </owl:Restriction>
@@ -555,6 +573,15 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Spreading">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Disposition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#UnalteredObject -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#UnalteredObject">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Patient"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An object whose state remains unchanged at the end of the task execution</rdfs:comment>
     </owl:Class>
     
 
