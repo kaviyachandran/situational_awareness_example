@@ -62,6 +62,12 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#isPlanFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/SOMA.owl#isPlanFor"/>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies -->
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
@@ -519,6 +525,15 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Patient"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An object which is held by a robot by grasping</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#ImageSchematicDescription -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#ImageSchematicDescription">
@@ -604,6 +619,40 @@
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description -->
 
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingPlan_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingPlan_0">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan"/>
+        <SOMA:isPlanFor rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Cutting_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Cutting_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Cutting_0">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+    </owl:NamedIndividual>
     <rdf:Description>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>
