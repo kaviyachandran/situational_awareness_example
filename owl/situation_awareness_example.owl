@@ -95,6 +95,17 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#usesRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#usesRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
+        <rdfs:range rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Role"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A relation holding between a Situation and a Role</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith -->
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
@@ -210,6 +221,12 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#AgentRole -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#AgentRole"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Arm -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Arm"/>
@@ -272,6 +289,12 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#CausedMotionTheory -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#CausedMotionTheory"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA.owl#CreatedObject -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#CreatedObject"/>
@@ -287,6 +310,12 @@
     <!-- http://www.ease-crc.org/ont/SOMA.owl#CuttingTool -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Delivering -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Delivering"/>
     
 
 
@@ -403,6 +432,12 @@
     <!-- http://www.ease-crc.org/ont/SOMA.owl#RelatumRole -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#RelatumRole"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#Role -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Role"/>
     
 
 
@@ -814,6 +849,12 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -833,6 +874,14 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#AgentRole"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#AssumingArmPose_0 -->
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#AssumingArmPose_0">
@@ -845,7 +894,7 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_0">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife"/>
-        <DUL:hasRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject_0"/>
     </owl:NamedIndividual>
     
 
@@ -883,6 +932,17 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Bread"/>
         <DUL:hasRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#DepositedBread"/>
         <DUL:hasRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ShapedObject_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_0">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CausedMotionTheory"/>
+        <DUL:defines rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
+        <DUL:defines rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ShapedObject_0"/>
+        <DUL:defines rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Tool_0"/>
     </owl:NamedIndividual>
     
 
@@ -964,6 +1024,14 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Lifting_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Lifting_0">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Delivering"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#LocatumRole_0 -->
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#LocatumRole_0">
@@ -1005,7 +1073,7 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#PhysicalAction_0">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#PhysicalAction"/>
         <DUL:executesTask rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AssumingArmPose_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_1"/>
+        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_0"/>
         <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#RightArm_0"/>
     </owl:NamedIndividual>
     
@@ -1018,6 +1086,17 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
         <DUL:executesTask rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#PushingDown_0"/>
         <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_1"/>
         <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Bread_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#PhysicalAction_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#PhysicalAction_2">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#PhysicalAction"/>
+        <DUL:executesTask rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Lifting_0"/>
+        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_0"/>
+        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#RightArm_0"/>
     </owl:NamedIndividual>
     
 
@@ -1088,8 +1167,13 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_0">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Scene"/>
-        <DUL:includesEvent rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Accessor_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoardDeposit"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#DepositedBread"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#SupportTheory_0"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is the initial situation before the arm with knife is moved close to the cutting object</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -1098,7 +1182,11 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_1">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Scene"/>
-        <DUL:includesEvent rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_1"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Accessor_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoardDeposit"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#DepositedBread"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#MovedObject_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ProximalTheory_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#SupportTheory_0"/>
     </owl:NamedIndividual>
@@ -1109,9 +1197,22 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_2">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Scene"/>
-        <DUL:includesEvent rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_2"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CreatedObject_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoardDeposit"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ShapedObject_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Tool_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ContactTheory_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#SupportTheory_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_3">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Scene"/>
+        <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_0"/>
     </owl:NamedIndividual>
     
 
@@ -1146,38 +1247,13 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     
 
 
-    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#State_0 -->
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#StateTransition_2 -->
 
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_0">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#PhysicalState"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Bread_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoard_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#RightGripper"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#State_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_1">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#State"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Bread_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoard_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#RightGripper"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#State_2 -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_2">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#State"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_1"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadSlice_0"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Bread_1"/>
-        <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoard_1"/>
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#StateTransition_2">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#StateTransition"/>
+        <SOMA:hasInitialScene rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_2"/>
+        <SOMA:hasTerminalScene rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_3"/>
+        <DUL:includesEvent rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#PhysicalAction_2"/>
     </owl:NamedIndividual>
     
 
@@ -1197,9 +1273,6 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Tool_0">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Tool"/>
     </owl:NamedIndividual>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
 </rdf:RDF>
 
 
