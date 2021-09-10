@@ -81,6 +81,26 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#transitionPrecedes -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#transitionPrecedes">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.ease-crc.org/ont/SOMA.owl#hasTerminalScene"/>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasInitialScene"/>
+            </rdf:Description>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies -->
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
@@ -987,7 +1007,6 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
         <DUL:executesTask rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AssumingArmPose_0"/>
         <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#BreadKnife_1"/>
         <DUL:hasParticipant rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#RightArm_0"/>
-        <DUL:isClassifiedBy rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#GraspMotion_0"/>
     </owl:NamedIndividual>
     
 
@@ -1120,8 +1139,8 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#StateTransition_1">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#StateTransition"/>
-        <SOMA:hasInitialScene rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_1"/>
-        <SOMA:hasTerminalScene rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#State_2"/>
+        <SOMA:hasInitialScene rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_1"/>
+        <SOMA:hasTerminalScene rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_2"/>
         <DUL:includesEvent rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#PhysicalAction_1"/>
     </owl:NamedIndividual>
     
