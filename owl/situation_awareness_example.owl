@@ -495,6 +495,18 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/failure_and_recovery.owl#ExecutionPhaseFailure -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/failure_and_recovery.owl#ExecutionPhaseFailure"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/failure_and_recovery.owl#FailureDiagnosis -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/failure_and_recovery.owl#FailureDiagnosis"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Applying">
@@ -754,6 +766,17 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#ForceControlFailure -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#ForceControlFailure">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/failure_and_recovery.owl#ExecutionPhaseFailure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Agent completed a Task that requires performing a movement with certain force. When the force exerted is not enough, then this can lead to the task failure.
+
+For example, An agent using a cucumber will have to exert the required force to cut a slice. If enough force is applied then it can lead to the knife slipping.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject">
@@ -763,11 +786,35 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     
 
 
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#HighForce -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#HighForce">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#MotionFailureDiagnosis"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#MilkProducts -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#MilkProducts">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Food"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All the products made from milk</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#MotionFailureDiagnosis -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#MotionFailureDiagnosis">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/failure_and_recovery.owl#FailureDiagnosis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#NotEnoughForce -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#NotEnoughForce">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#MotionFailureDiagnosis"/>
     </owl:Class>
     
 
@@ -941,8 +988,15 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_0">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CausedMotionTheory"/>
         <DUL:defines rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
-        <DUL:defines rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ShapedObject_0"/>
         <DUL:defines rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Tool_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_1">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CausedMotionTheory"/>
     </owl:NamedIndividual>
     
 
@@ -1200,8 +1254,8 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
         <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
         <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CreatedObject_0"/>
         <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CuttingBoardDeposit"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#HeldObject_0"/>
         <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ShapedObject_0"/>
-        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Tool_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ContactTheory_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#SupportTheory_0"/>
     </owl:NamedIndividual>
@@ -1212,6 +1266,9 @@ Let xL, xR be objects filling the locatum, relatum roles of this schema. Then on
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Scene_3">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Scene"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#AgentRole_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#ShapedObject_0"/>
+        <usesRole rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#Tool_0"/>
         <DUL:satisfies rdf:resource="http://www.ease-crc.org/ont/situation_awareness_example.owl#CausedMotionTheory_0"/>
     </owl:NamedIndividual>
     
