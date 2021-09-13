@@ -13,6 +13,7 @@
     <owl:Ontology rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl">
         <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-HOME.owl"/>
         <owl:imports rdf:resource="package://situation_awareness_example/owl/SOMA-OBJ.owl"/>
+        <owl:imports rdf:resource="package://failrecont/owl/failure_and_recovery.owl"/>
     </owl:Ontology>
     
 
