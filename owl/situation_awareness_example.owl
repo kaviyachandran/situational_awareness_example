@@ -832,7 +832,7 @@ For example, An agent using a cucumber will have to exert the required force to 
     <!-- http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness_example.owl#Splitting">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Variability"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Shaping"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
